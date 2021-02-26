@@ -10,7 +10,7 @@ const actions = {
     setWeatherDetail({commit} ,cityName){
         const config = {
             'method': 'GET',
-            'url':'http://api.openweathermap.org/data/2.5/weather',
+            'url':'https://api.openweathermap.org/data/2.5/weather',
             params:{
                 'q':cityName,
                 'appid':'cefd71548a5fa5681a173bd95d5b7c70'
