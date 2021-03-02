@@ -1,19 +1,19 @@
 <template>
-  <div class="card">
-    <h1 class="city">{{ getWeatherDetail.name }}</h1>
-    <p class="description">{{ getWeatherDetail.weather[0].main }}</p>
+  <div class="card bg-image" >
+    <h1 class="city" >{{ getName }}</h1>
+    <p class="description" >{{ getDesc }}</p>
     <p class="min-max">
-      Low:
-      {{ (getWeatherDetail.main.temp_min - 273).toFixed(0)}}°C
-      High:
-      {{ (getWeatherDetail.main.temp_max - 273).toFixed(0)}}°C
+      High :
+      {{ getHighTemp }}°C
+      Low :
+      {{ getLowTemp }}°C
       <br>
       Feels Like:
-      {{ (getWeatherDetail.main.feels_like - 273).toFixed(0)}}°C
+      {{ getFeelsLike }}°C
     </p>
     <div class="numbers">
       <div class="temp">
-        <span></span><sup class="unit">{{(getWeatherDetail.main.temp - 273).toFixed(0)}}°C</sup>
+        <span></span><sup class="unit">{{ getMain }}°C</sup>
       </div>
       <div class="icon">
         <img :src="imgUrl" alt="Slow Internet">
@@ -23,11 +23,11 @@
         <table class="measurements">
           <tr>
             <td class="label">Pressure</td>
-            <td class="value">{{getWeatherDetail.main.pressure}}hpa</td>
+            <td class="value">{{ getPressure }}hpa</td>
           </tr>
           <tr>
             <td class="label">Humidity</td>
-            <td class="value">{{getWeatherDetail.main.humidity}}%</td>
+            <td class="value">{{getHumidity}}%</td>
           </tr>
           <tr>
             <td class="label">Wind speed</td>
@@ -66,7 +66,11 @@ div.card {
   width: fit-content;
   border: 1px solid #D7D7D7;
   border-radius: 15px;
-  background-color: antiquewhite;
+  background-color: azure;
+}
+div.bg-image{
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 div.numbers div {
@@ -93,6 +97,4 @@ div.numbers .measurements .label {
   width: 100px;
   color: #777;
 }
-
-
 </style>

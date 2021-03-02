@@ -13,7 +13,8 @@ const actions = {
             'url':'https://api.openweathermap.org/data/2.5/weather',
             params:{
                 'q':cityName,
-                'appid':'cefd71548a5fa5681a173bd95d5b7c70'
+                'appid':'cefd71548a5fa5681a173bd95d5b7c70',
+                'units':'metric'
             }
         }
         axios.request(config)
