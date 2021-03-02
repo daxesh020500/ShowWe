@@ -13,16 +13,16 @@ export default {
             return this.getWeatherDetail.weather[0].main || ''
         },
         getHighTemp:function (){
-            return this.getWeatherDetail.main.temp_max || ''
+            return (this.getWeatherDetail.main.temp_max).toFixed(0) || ''
         },
         getLowTemp:function (){
-            return this.getWeatherDetail.main.temp_min || ''
+            return (this.getWeatherDetail.main.temp_min).toFixed(0) || ''
         },
         getFeelsLike:function (){
-            return this.getWeatherDetail.main.feels_like || ''
+            return (this.getWeatherDetail.main.feels_like).toFixed(0) || ''
         },
         getMain:function (){
-            return this.getWeatherDetail.main.temp || ''
+            return (this.getWeatherDetail.main.temp).toFixed(0) || ''
         },
         getPressure:function (){
             return this.getWeatherDetail.main.pressure || ''
