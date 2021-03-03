@@ -10,8 +10,21 @@ const stubs = {
 
 function getStore(){
     const state = {
-        weatherDetail : {},
-        weatherIconId: ''
+        weatherDetail : {
+            name : 'BLR',
+            weather : [
+                {
+                    main : 'Cloudy'
+                }
+            ],
+            main:{
+                temp : 27,
+                temp_max : 28,
+                temp_min : 26,
+                feels_like : 28
+            }
+        },
+        weatherIconId: '1d'
     }
     const getters = {
         getWeatherDetail: (state) => state.weatherDetail,
@@ -38,5 +51,9 @@ describe('WeatherCard Test', () =>{
 
     it('Initialized Well' , () =>{
         expect(wrapper.vm).toBeTruthy()
+    })
+
+    it('[COMPUTED] getName', () => {
+        expect(wrapper.vm.ciyName).toEqual('BLR')
     })
 })

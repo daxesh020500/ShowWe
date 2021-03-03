@@ -1,4 +1,4 @@
-import {shallowMount, createLocalVue} from "@vue/test-utils";
+import {mount,createLocalVue} from "@vue/test-utils";
 import Home from "@/views/Home";
 import Vuex from 'vuex'
 
@@ -8,7 +8,7 @@ localVue.use(Vuex)
 const stubs = {
     WeatherCard:true
 }
-function getStroe(){
+function getStore(){
     const state = {
         weatherDetail : {}
     }
@@ -31,15 +31,15 @@ function getStroe(){
     }
 }
 describe('Home Test ', () => {
-    const wrapper = shallowMount(Home, {
+    const wrapper = mount(Home, {
         localVue,
         stubs,
-        store: getStroe().store,
+        store: getStore().store,
         data(){
             return{
                 cityName : ""
             }
-        }
+        },
     })
 
     it('Initialized Well' , () => {
@@ -47,6 +47,16 @@ describe('Home Test ', () => {
     })
 
     it('[METHOD] getWeather', () => {
+        const getWeatherSpy = jest.spyOn(wrapper.vm,'getWeather')
+        const setWeatherDetailsSpy = jest.spyOn(wrapper.vm,'setWeatherDetail')
+        wrapper.vm.cityName = ''
+        wrapper.vm.getWeather()
+        expect(getWeatherSpy).toHaveBeenCalled()
+        expect(setWeatherDetailsSpy).toHaveBeenCalled()
 
+        //Called With cityName argument
+        wrapper.vm.cityName = 'Chennai'
+        wrapper.vm.getWeather()
+        expect(setWeatherDetailsSpy).toBeCalledWith('Chennai')
     })
 })

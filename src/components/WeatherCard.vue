@@ -31,7 +31,7 @@
           </tr>
           <tr>
             <td class="label">Wind speed</td>
-            <td class="value">{{getWeatherDetail.wind.speed}} kmph</td>
+            <td class="value">{{getSpeed}} kmph</td>
           </tr>
         </table>
       </div>
