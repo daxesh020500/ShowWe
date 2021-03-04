@@ -47,12 +47,10 @@ describe('Home Test ', () => {
     })
 
     it('[METHOD] getWeather', () => {
-        const getWeatherSpy = jest.spyOn(wrapper.vm,'getWeather')
         const setWeatherDetailsSpy = jest.spyOn(wrapper.vm,'setWeatherDetail')
         wrapper.vm.cityName = ''
         wrapper.vm.getWeather()
-        expect(getWeatherSpy).toHaveBeenCalled()
-        expect(setWeatherDetailsSpy).toHaveBeenCalled()
+        expect(setWeatherDetailsSpy).not.toHaveBeenCalled()
 
         //Called With cityName argument
         wrapper.vm.cityName = 'Chennai'
