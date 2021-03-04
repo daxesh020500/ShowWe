@@ -46,16 +46,18 @@ describe('Home Test ', () => {
         expect(wrapper.vm).toBeTruthy()
     })
 
-    it('[METHOD] getWeather', () => {
-
+    it('[METHOD] getWeather when cityName is not there', () => {
         const windowAlert = jest.spyOn(window, 'alert').mockImplementation(() => {})
         const setWeatherDetailsSpy = jest.spyOn(wrapper.vm,'setWeatherDetail')
         wrapper.vm.cityName = ''
         wrapper.vm.getWeather()
         expect(setWeatherDetailsSpy).not.toHaveBeenCalled()
         expect(windowAlert).toHaveBeenCalled()
+    })
 
+    it('[METHOD] getWeather when cityName is there',() => {
         //Called With cityName argument
+        const setWeatherDetailsSpy = jest.spyOn(wrapper.vm,'setWeatherDetail')
         wrapper.vm.cityName = 'Chennai'
         wrapper.vm.getWeather()
         expect(setWeatherDetailsSpy).toBeCalledWith('Chennai')
