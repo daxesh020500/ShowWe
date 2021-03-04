@@ -6,7 +6,7 @@
       <button class="button" type="button" @click="getWeather()">Search</button>
       <span class="msg"></span>
     </div>
-    <WeatherCard v-if="getWeatherDetail && true"/>
+    <WeatherCard v-if="getWeatherDetail"/>
   </div>
 </template>
 

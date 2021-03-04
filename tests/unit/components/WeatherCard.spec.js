@@ -11,20 +11,23 @@ const stubs = {
 function getStore(){
     const state = {
         weatherDetail : {
-            name : 'BLR',
+            name : '',
             weather : [
                 {
-                    main : 'Cloudy'
+                    main : ''
                 }
             ],
             main:{
-                temp : 27,
-                temp_max : 28,
-                temp_min : 26,
-                feels_like : 28
+                temp : 0,
+                temp_max :0,
+                temp_min : 0,
+                feels_like :0
+            },
+            wind:{
+                speed : ''
             }
         },
-        weatherIconId: '1d'
+        weatherIconId: ''
     }
     const getters = {
         getWeatherDetail: (state) => state.weatherDetail,
@@ -53,7 +56,27 @@ describe('WeatherCard Test', () =>{
         expect(wrapper.vm).toBeTruthy()
     })
 
-    it('[COMPUTED] getName', () => {
-        expect(wrapper.vm.ciyName).toEqual('BLR')
+    it('[COMPUTED] getName when not present', () => {
+        expect(wrapper.vm.getName).toEqual('')
     })
+
+    it('[COMPUTED] getName when present', () => {
+        wrapper.vm.$store.state.weatherDetail.name = 'China'
+        expect(wrapper.vm.getName).toEqual('China')
+        wrapper.vm.$store.state.weatherDetail.name = ''
+    })
+
+    it('[COMPUTED] getDesc when not present', () => {
+        expect(wrapper.vm.getDesc).toEqual('')
+    })
+
+    it('[COMPUTED] getDesc when present', () =>{
+        wrapper.vm.$store.state.weatherDetail.weather[0].main = 'Cloudy'
+        expect(wrapper.vm.getDesc).toEqual('Cloudy')
+    })
+
+    it('[COMPUTED] getHighTemp when not present', () => {
+        expect(wrapper.vm.getHighTemp).toEqual('0')
+    })
+
 })
