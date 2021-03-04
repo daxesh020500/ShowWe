@@ -15,12 +15,11 @@ export default {
     methods:{
         ...mapActions(['setWeatherDetail']),
         getWeather(){
-            console.log("Inside the getWeather")
             if(this.cityName !== ''){
                 this.setWeatherDetail(this.cityName)
             }
             else{
-                //window.alert('Please Enter any Value')
+                window.alert('Please Enter any Value')
             }
 
         }

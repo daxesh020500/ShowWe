@@ -47,10 +47,13 @@ describe('Home Test ', () => {
     })
 
     it('[METHOD] getWeather', () => {
+
+        const windowAlert = jest.spyOn(window, 'alert').mockImplementation(() => {})
         const setWeatherDetailsSpy = jest.spyOn(wrapper.vm,'setWeatherDetail')
         wrapper.vm.cityName = ''
         wrapper.vm.getWeather()
         expect(setWeatherDetailsSpy).not.toHaveBeenCalled()
+        expect(windowAlert).toHaveBeenCalled()
 
         //Called With cityName argument
         wrapper.vm.cityName = 'Chennai'
