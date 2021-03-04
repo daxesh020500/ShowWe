@@ -76,7 +76,7 @@ describe('WeatherCard Test', () =>{
     })
 
     it('[COMPUTED] getHighTemp when not present', () => {
-        expect(wrapper.vm.getHighTemp).toEqual('0')
+        expect(wrapper.vm.getHighTemp).toEqual(0)
     })
 
 })
