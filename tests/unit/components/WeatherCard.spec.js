@@ -79,4 +79,22 @@ describe('WeatherCard Test', () =>{
         expect(wrapper.vm.getHighTemp).toEqual(0)
     })
 
+    it('[COMPUTED] getHighTemp when present',() => {
+        wrapper.vm.$store.state.weatherDetail.main.temp_max = 100
+        expect(wrapper.vm.getHighTemp).toEqual(100)
+    })
+
+    it('[COMPUTED] getLowTemp when not present', () => {
+        expect(wrapper.vm.getLowTemp).toEqual(0)
+    })
+
+    it('[COMPUTED] getLowTemp when present',() => {
+        wrapper.vm.$store.state.weatherDetail.main.temp_min = 10
+        expect(wrapper.vm.getLowTemp).toEqual(10)
+    })
+
+    //Other test cases are similar to above only
+    //TODO : Add similar test cases
+
+
 })
